@@ -5,6 +5,8 @@
 //Defined in employeeSearchOne.c
 PtrToEmployee searchEmployeeByNumber(const Employee table[], int sizeTable, long numberToFind);
 PtrToEmployee searchEmployeeByName(const Employee table[], int sizeTable, char * nameToFind);
+PtrToEmployee searchEmployeeByPhoneNumber(const Employee table[], int sizeTable, char * phoneNumberToFind);
+PtrToEmployee searchEmployeeBySalary(const Employee table[], int sizeTable, double salaryToFind);
 
 int main(void)
 {
@@ -32,6 +34,27 @@ int main(void)
     else
     {
         printf("Employee Tony Bobcat is NOT found in the record\n");
+    }
+
+    matchPtr = searchEmployeeByPhoneNumber(EmployeeTable, EmployeeTableEntries, "310-555-1215");
+    if(matchPtr != NULL)
+    {
+        printf("Phone number 310-55-1215 is in record %d\n", matchPtr - EmployeeTable);
+    }
+    else
+    {
+        printf("Phone number 310-55-1215 is NOT found in the record\n");
+    }
+
+
+    matchPtr = searchEmployeeBySalary(EmployeeTable, EmployeeTableEntries, 8.32);
+    if(matchPtr != NULL)
+    {
+        printf("Salary of 8.32 is in record %d\n", matchPtr - EmployeeTable);
+    }
+    else
+    {
+        printf("Salary of 8.32 is NOT found in the record\n");
     }
     return 0;
     
